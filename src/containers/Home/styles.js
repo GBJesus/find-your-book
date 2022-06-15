@@ -24,13 +24,21 @@ export const Title = styled.p`
   text-align: center;
   font-size: 56px;
   font-weight: bold;
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    font-size: 46px;
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 36px;
+  }
 `
 
 export const Form = styled.div`
+  display: flex;
   margin-top: 50px;
   width: 60%;
 
-  display: flex;
   input {
     width: 100%;
 
@@ -41,6 +49,14 @@ export const Form = styled.div`
     color: #3a3a3a;
     &::placeholder {
       color: #a8a8b3;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      height: 60px;
+    }
+
+    @media screen and (max-width: 767px) {
+      height: 50px;
     }
   }
   button {
@@ -58,6 +74,14 @@ export const Form = styled.div`
     &:active {
       opacity: 0.5;
     }
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      height: 60px;
+    }
+
+    @media screen and (max-width: 767px) {
+      height: 50px;
+    }
   }
 `
 
@@ -72,6 +96,15 @@ export const BookList = styled.div`
   gap: 20px;
   margin-top: 50px;
 
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+  }
+
   span {
     text-align: center;
     grid-column: 2;
@@ -85,6 +118,10 @@ export const BookCard = styled.div`
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px #909095;
+
+  @media screen and (max-width: 767px) {
+    width: 250px;
+  }
 
   img {
     border-radius: 5px 5px 0 0;
