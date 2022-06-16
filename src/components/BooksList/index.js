@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 import {
   Container,
@@ -11,6 +12,7 @@ import {
 } from './styles'
 
 function BooksList(props) {
+  const history = useHistory()
   console.log(props.listBooks)
   return (
     <Container>
