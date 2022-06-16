@@ -85,8 +85,6 @@ export const Form = styled.div`
   }
 `
 
-export const Div = styled.div``
-
 export const Books = styled.div`
   display: flex;
   flex-direction: column;

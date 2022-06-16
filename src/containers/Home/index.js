@@ -1,7 +1,5 @@
-// import SaveIcon from '@mui/icons-material/Save'
-// import LoadingButton from '@mui/lab/LoadingButton'
-
 import FavoriteIcon from '@mui/icons-material/Favorite'
+import LoadingButton from '@mui/lab/LoadingButton'
 import Pagination from '@mui/material/Pagination'
 import Stack from '@mui/material/Stack'
 import React, { useState, useCallback } from 'react'
@@ -9,7 +7,7 @@ import { useHistory } from 'react-router-dom'
 
 import BooksList from '../../components/BooksList'
 import getBooks from './getBooksService'
-import { Container, IconButton, Title, Form, Div, Books, Box } from './styles'
+import { Container, IconButton, Title, Form, Books, Box } from './styles'
 
 export function Home() {
   const history = useHistory()
@@ -57,7 +55,11 @@ export function Home() {
           onChange={e => setSearchParams(e.target.value)}
         />
         {loading ? (
-          <Div>Carregando...</Div>
+          <Stack direction="row" spacing={2}>
+            <LoadingButton loading variant="outlined">
+              Submit
+            </LoadingButton>
+          </Stack>
         ) : (
           <button onClick={() => loadBooks(1)}>Buscar</button>
         )}
