@@ -41,6 +41,7 @@ export const Grid = styled.div`
     height: 260px;
   }
 `
+
 export const BookInfo = styled.div`
   display: flex;
   height: 100%;

@@ -2,7 +2,6 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import React, { useState, useCallback, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
-// import { BookList } from '../../components/BookList'
 import BooksList from '../../components/BooksList'
 import { favoriteLocalStorage } from '../../hooks/favoriteLocalStorage'
 import { Title } from '../Home/styles'
@@ -10,21 +9,18 @@ import { Container, IconButton } from './styles'
 
 export const Favorites = () => {
   const history = useHistory()
-  const [books, setBooks] = useState()
+  const [books, setBooks] = useState([])
 
   const getFavoritesBooks = useCallback(() => {
     let favorites = []
     favorites = favoriteLocalStorage('getFavorites', [])
-    const bookList = {
-      books: favorites.map(favorite => {
-        return favorite
-      }),
-      totalItems: favorites.length
-    }
-    setBooks(bookList)
-  }, [])
 
-  console.log(books)
+    favorites = favorites.map(fav => {
+      return { ...fav, totalItems: favorites.length }
+    })
+
+    setBooks(favorites)
+  }, [])
 
   useEffect(() => {
     getFavoritesBooks()
@@ -39,20 +35,6 @@ export const Favorites = () => {
         <Title>Meus livros favoritos</Title>
         <br />
         {books && <BooksList listBooks={books} />}
-
-        {/* {books &&
-          books.map(book => (
-            <BookCard key={book.id}>
-              <img src={book.imageLinks?.thumbnail || ''} alt={book.title} />
-              <BookInfo>
-                <Author>{book.authors}</Author>
-                <BookTitle>{book.title}</BookTitle>
-                <DetailsButton onClick={() => history.push(`book/${book.id}`)}>
-                  Ver detalhes
-                </DetailsButton>
-              </BookInfo>
-            </BookCard>
-          ))} */}
       </Container>
     </>
   )

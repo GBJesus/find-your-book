@@ -1,15 +1,15 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import { ToastContainer } from 'react-toastify'
 
 import Routes from './routes/routes'
 import GlobalStyles from './styles/globalStyles'
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(
   <>
     <Routes />
     <ToastContainer />
     <GlobalStyles />
-  </>,
-  document.getElementById('root')
+  </>
 )

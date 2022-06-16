@@ -17,11 +17,27 @@ export const Card = styled.div`
   width: 60%;
   background-color: #fff;
   border-radius: 5px;
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 90%;
+  }
 `
 
 export const CardHeader = styled.h1`
   text-align: center;
   margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    font-size: 30px;
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 20px;
+  }
 `
 
 export const CardMedia = styled.img`
@@ -30,13 +46,31 @@ export const CardMedia = styled.img`
 
 export const CardContent = styled.div`
   padding: 20px 50px 0;
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    padding: 20px 40px 0;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 20px 30px 0;
+  }
 `
 
 export const Author = styled.p`
   font-size: 24px;
 `
 
-export const Typography = styled.p``
+export const Typography = styled.p`
+  font-size: 16px;
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 10px;
+  }
+`
 
 export const CardActions = styled.div`
   align-self: start;

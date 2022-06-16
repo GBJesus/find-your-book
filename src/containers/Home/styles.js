@@ -94,12 +94,6 @@ export const Books = styled.div`
   justify-content: center;
 
   margin-top: 50px;
-
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-  }
-
-  @media screen and (max-width: 767px) {
-  }
 `
 
 export const Box = styled.div`

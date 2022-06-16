@@ -44,8 +44,6 @@ export function Home() {
           progress: undefined
         })
       } catch (err) {
-        console.error(err)
-
         toast.error('Deu erro! Tente novamente', {
           position: 'top-right',
           autoClose: 2000,
@@ -55,6 +53,8 @@ export function Home() {
           draggable: true,
           progress: undefined
         })
+
+        throw new Error(err)
       } finally {
         setLoading(false)
       }

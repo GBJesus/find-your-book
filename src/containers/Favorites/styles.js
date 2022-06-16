@@ -13,4 +13,5 @@ export const IconButton = styled.button`
   align-self: start;
   border: none;
   margin: 10px;
+  background: none;
 `

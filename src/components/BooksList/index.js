@@ -13,7 +13,7 @@ import {
 
 function BooksList(props) {
   const history = useHistory()
-  console.log(props.listBooks)
+
   return (
     <Container>
       {props.listBooks?.map(book => (

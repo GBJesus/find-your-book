@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify'
+
 export const favoriteLocalStorage = (action, data) => {
   const getFavorites = () => {
     try {
@@ -8,7 +10,7 @@ export const favoriteLocalStorage = (action, data) => {
       }
       return JSON.parse(favorites)
     } catch (error) {
-      console.log(error)
+      throw new Error(error)
     }
   }
 
@@ -19,9 +21,17 @@ export const favoriteLocalStorage = (action, data) => {
       favorites.push(data)
       console.warn(favorites)
       localStorage.setItem('@favorite-books', JSON.stringify(favorites))
-      console.log('favoritado com sucesso')
+      toast.success('❤️ Favoritado com Sucesso', {
+        position: 'top-right',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      })
     } catch (error) {
-      console.log(error)
+      throw new Error(error)
     }
   }
 
@@ -32,9 +42,17 @@ export const favoriteLocalStorage = (action, data) => {
       const index = favorites.findIndex(obj => obj !== null && obj.id === data)
       favorites.splice(index, 1)
       localStorage.setItem('@favorite-books', JSON.stringify(favorites))
-      return console.log('desfavoritado com sucesso')
+      return toast.success('💔 Desfavoritado com Sucesso', {
+        position: 'top-right',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      })
     } catch (error) {
-      console.log(error)
+      throw new Error(error)
     }
   }
 
