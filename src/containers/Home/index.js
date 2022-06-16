@@ -4,6 +4,7 @@ import Pagination from '@mui/material/Pagination'
 import Stack from '@mui/material/Stack'
 import React, { useState, useCallback } from 'react'
 import { useHistory } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 import BooksList from '../../components/BooksList'
 import getBooks from './getBooksService'
@@ -32,8 +33,28 @@ export function Home() {
         setBooks(allBooks)
         setTotalItems(allItems)
         setLoading(false)
+
+        toast.success('📚 Boa leitura!', {
+          position: 'top-right',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined
+        })
       } catch (err) {
         console.error(err)
+
+        toast.error('Deu erro! Tente novamente', {
+          position: 'top-right',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined
+        })
       } finally {
         setLoading(false)
       }

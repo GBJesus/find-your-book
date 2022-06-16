@@ -18,6 +18,7 @@ export const IconButton = styled.button`
   border: none;
   font-size: 16px;
   color: rgba(0, 0, 0, 0.54);
+  background: none;
 `
 
 export const Title = styled.p`
