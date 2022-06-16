@@ -7,7 +7,6 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
-  /* margin-top: 50px; */
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     grid-template-columns: repeat(3, 1fr);
