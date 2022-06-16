@@ -3,16 +3,9 @@ import React, { useState, useCallback, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
 // import { BookList } from '../../components/BookList'
+import BooksList from '../../components/BooksList'
 import { favoriteLocalStorage } from '../../hooks/favoriteLocalStorage'
-import {
-  Title,
-  BookList,
-  BookCard,
-  BookInfo,
-  Author,
-  BookTitle,
-  DetailsButton
-} from '../Home/styles'
+import { Title } from '../Home/styles'
 import { Container, IconButton } from './styles'
 
 export const Favorites = () => {
@@ -45,6 +38,7 @@ export const Favorites = () => {
         </IconButton>
         <Title>Meus livros favoritos</Title>
         <br />
+        {books && <BooksList listBooks={books} />}
 
         {/* {books &&
           books.map(book => (

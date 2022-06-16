@@ -1,26 +1,15 @@
 // import SaveIcon from '@mui/icons-material/Save'
 // import LoadingButton from '@mui/lab/LoadingButton'
-// import Stack from '@mui/material/Stack'
+
 import FavoriteIcon from '@mui/icons-material/Favorite'
-// import Pagination from '@mui/material/Pagination'
-// import Stack from '@mui/material/Stack'
+import Pagination from '@mui/material/Pagination'
+import Stack from '@mui/material/Stack'
 import React, { useState, useCallback } from 'react'
 import { useHistory } from 'react-router-dom'
 
+import BooksList from '../../components/BooksList'
 import getBooks from './getBooksService'
-import {
-  Container,
-  IconButton,
-  Title,
-  Form,
-  Div,
-  BookList,
-  BookCard,
-  BookInfo,
-  Author,
-  BookTitle,
-  DetailsButton
-} from './styles'
+import { Container, IconButton, Title, Form, Div, Books, Box } from './styles'
 
 export function Home() {
   const history = useHistory()
@@ -73,24 +62,25 @@ export function Home() {
           <button onClick={() => loadBooks(1)}>Buscar</button>
         )}
       </Form>
-      <BookList>
-        {totalItems > 0 && books
-          ? books.map(book => (
-              <BookCard key={book.id}>
-                <img src={book.imageLinks?.thumbnail || ''} alt={book.title} />
-                <BookInfo>
-                  <Author>{book.authors}</Author>
-                  <BookTitle>{book.title}</BookTitle>
-                  <DetailsButton
-                    onClick={() => history.push(`book/${book.id}`)}
-                  >
-                    Ver detalhes
-                  </DetailsButton>
-                </BookInfo>
-              </BookCard>
-            ))
+      <Books>
+        {totalItems > 0
+          ? books && (
+              <>
+                <BooksList listBooks={books} />
+                <Box>
+                  {' '}
+                  <Stack spacing={2}>
+                    <Pagination
+                      onChange={(event, page) => loadBooks(page)}
+                      count={Math.floor(totalItems / 10)}
+                      color="primary"
+                    />
+                  </Stack>
+                </Box>
+              </>
+            )
           : totalItems >= 0 && <span>Nenhum livro encontrado!</span>}
-      </BookList>
+      </Books>
     </Container>
   )
 }
