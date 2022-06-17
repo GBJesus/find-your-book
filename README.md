@@ -37,7 +37,6 @@ The project is a simulator to help users simulate how and when they will achieve
 - [Eslint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 - [Netlify](https://www.netlify.com/)
-- [CircleCi](https://circleci.com/developer/)
 
 
 <br>
