@@ -26,7 +26,7 @@
 
 ## :house: About the project
 
-The project is a simulator to help users simulate how and when they will achieve their goal of buying their own home.
+This project is an application that consumes the Google Books API, where the user can search Google's library books, read information and add to favorites.
 <br>
 
 ## :computer: Technologies
